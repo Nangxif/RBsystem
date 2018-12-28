@@ -11,8 +11,6 @@
 </head>
 <body>
 	<h3>侧边栏菜单</h3>
-	<p></p>
-
 	<h4>一级菜单</h4>
 	<div class="readboy-menu readboy-menu-1">
 		<ul class="readboy-menu-ul">
@@ -75,6 +73,18 @@
 		</ul>
 	</div>
 	<h4>使用方法</h4>
+	<p>相关HTML，以一级菜单作为例子</p>
+	<pre>
+&lt;div class="readboy-menu readboy-menu-1">
+	&lt;ul class="readboy-menu-ul">
+		&lt;li class="readboy-menu-item readboy-menu-item-active">&lt;a>&lt;i class="glyphicon glyphicon-folder-close">&lt;/i>一级菜单&lt;/a>&lt;/li>
+		&lt;li class="readboy-menu-item">&lt;a>&lt;i class="glyphicon glyphicon-folder-close">&lt;/i>一级菜单&lt;/a>&lt;/li>
+		&lt;li class="readboy-menu-item">&lt;a>&lt;i class="glyphicon glyphicon-folder-close">&lt;/i>一级菜单&lt;/a>&lt;/li>
+		&lt;li class="readboy-menu-item">&lt;a>&lt;i class="glyphicon glyphicon-folder-close">&lt;/i>一级菜单&lt;/a>&lt;/li>
+		&lt;li class="readboy-menu-item">&lt;a>&lt;i class="glyphicon glyphicon-folder-close">&lt;/i>一级菜单&lt;/a>&lt;/li>
+	&lt;/ul>
+&lt;/div>
+	</pre>
 	<p>每个菜单都是由<code>&lt;div class="readboy-menu readboy-menu-*"&gt;</div></code>开始的</p>
 	<p>类<code>.readboy-menu-1</code>是设置一级菜单的宽度，类<code>.readboy-menu-2</code>是设置二级菜单的宽度，类<code>.readboy-menu-3</code>是设置三级菜单的宽度。</p>
 	<p>使用时，需要复制css文件夹里面的<a href="./assests/css/侧边栏菜单.css">“侧边栏菜单.css”</a>文件内容，同时也需要调用一段js代码</p>
@@ -96,6 +106,7 @@ $(".readboy-menu-item").on("click",function(e){
 	$(this).addClass("readboy-menu-item-active");
 });
 	</pre>
+	<p>ps:侧边菜单栏的小图标来源于bootstrap的glyphicon图标库</p>
 
 </body>
 <script src="./assests/js/jquery.min.js"></script>
