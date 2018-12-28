@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+	<title>侧边栏菜单</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="./assests/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./assests/css/侧边栏菜单.css" />
+</head>
+<body>
+	<h3>侧边栏菜单</h3>
+	<p></p>
+
+	<h4>一级菜单</h4>
+	<div class="readboy-menu readboy-menu-1">
+		<ul class="readboy-menu-ul">
+			<li class="readboy-menu-item readboy-menu-item-active"><a><i class="glyphicon glyphicon-folder-close"></i>一级菜单</a></li>
+			<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>一级菜单</a></li>
+			<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>一级菜单</a></li>
+			<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>一级菜单</a></li>
+			<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>一级菜单</a></li>
+		</ul>
+	</div>
+	<h4>二级菜单</h4>
+	<div class="readboy-menu readboy-menu-2">
+		<ul class="readboy-menu-ul">
+			<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>二级菜单<span class="glyphicon glyphicon-chevron-down"></span></a>
+				<ul class="readboy-menu-ul">
+					<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>二级菜单</a></li>
+					<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>二级菜单</a></li>
+				</ul>
+			</li>
+			<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>二级菜单<span class="glyphicon glyphicon-chevron-down"></span></a>
+				<ul class="readboy-menu-ul">
+					<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>二级菜单</a></li>
+					<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>二级菜单</a></li>
+				</ul>
+			</li>
+			<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>二级菜单<span class="glyphicon glyphicon-chevron-down"></span></a>
+				<ul class="readboy-menu-ul">
+					<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>二级菜单</a></li>
+					<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>二级菜单</a></li>
+				</ul>
+			</li>
+			<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>二级菜单<span class="glyphicon glyphicon-chevron-down"></span></a>
+				<ul class="readboy-menu-ul">
+					<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>二级菜单</a></li>
+					<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>二级菜单</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<h4>三级菜单</h4>
+	<div class="readboy-menu readboy-menu-2">
+		<ul class="readboy-menu-ul">
+			<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>三级菜单<span class="glyphicon glyphicon-chevron-down"></span></a>
+				<ul class="readboy-menu-ul">
+					<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>三级菜单</a></li>
+					<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>三级菜单</a></li>
+				</ul>
+			</li>
+			<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>三级菜单<span class="glyphicon glyphicon-chevron-down"></span></a>
+				<ul class="readboy-menu-ul">
+					<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>三级菜单<span class="glyphicon glyphicon-chevron-down"></span></a>
+						<ul class="readboy-menu-ul">
+							<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>三级菜单</a></li>
+							<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>三级菜单</a></li>
+						</ul>
+					</li>
+					<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>三级菜单</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<h4>使用方法</h4>
+	<p>每个菜单都是由<code>&lt;div class="readboy-menu readboy-menu-*"&gt;</div></code>开始的</p>
+	<p>类<code>.readboy-menu-1</code>是设置一级菜单的宽度，类<code>.readboy-menu-2</code>是设置二级菜单的宽度，类<code>.readboy-menu-3</code>是设置三级菜单的宽度。</p>
+	<p>使用时，需要复制css文件夹里面的<a href="./assests/css/侧边栏菜单.css">“侧边栏菜单.css”</a>文件内容，同时也需要调用一段js代码</p>
+	<pre>
+$(".readboy-menu-item").on("click",function(e){
+	e.stopPropagation();
+	if($(this).find(".readboy-menu-ul").length>0){
+		if($(this).children(".readboy-menu-ul").css("display")=="none"){
+			$(this).children("a").find("i").attr({"class":"glyphicon glyphicon-folder-open"});
+			$(this).children("a").find("span").css({"transform":"rotate(180deg)"});
+			$(this).children(".readboy-menu-ul").slideDown();
+		}else{
+			$(this).children("a").find("i").attr({"class":"glyphicon glyphicon-folder-close"});
+			$(this).children("a").find("span").css({"transform":"rotate(0deg)"});
+			$(this).children(".readboy-menu-ul").slideUp();
+		}
+	}
+	$(this).parents(".readboy-menu").find(".readboy-menu-item").removeClass("readboy-menu-item-active");
+	$(this).addClass("readboy-menu-item-active");
+});
+	</pre>
+
+</body>
+<script src="./assests/js/jquery.min.js"></script>
+<script src="./assests/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(".readboy-menu-item").on("click",function(e){
+		e.stopPropagation();
+		if($(this).find(".readboy-menu-ul").length>0){
+			if($(this).children(".readboy-menu-ul").css("display")=="none"){
+				$(this).children("a").find("i").attr({"class":"glyphicon glyphicon-folder-open"});
+				$(this).children("a").find("span").css({"transform":"rotate(180deg)"});
+				$(this).children(".readboy-menu-ul").slideDown();
+			}else{
+				$(this).children("a").find("i").attr({"class":"glyphicon glyphicon-folder-close"});
+				$(this).children("a").find("span").css({"transform":"rotate(0deg)"});
+				$(this).children(".readboy-menu-ul").slideUp();
+			}
+		}
+		$(this).parents(".readboy-menu").find(".readboy-menu-item").removeClass("readboy-menu-item-active");
+		$(this).addClass("readboy-menu-item-active");
+	});
+</script>
+</html>
