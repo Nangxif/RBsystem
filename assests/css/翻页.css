@@ -1,0 +1,66 @@
+.readboy-pagination-default,.readboy-pagination-circle{
+	user-select: none;
+}
+.readboy-pagination-default.pagination>.active>a, .readboy-pagination-default.pagination>.active>a:focus, .readboy-pagination-default.pagination>.active>a:hover, .readboy-pagination-default.pagination>.active>span, .readboy-pagination-default.pagination>.active>span:focus, .readboy-pagination-default.pagination>.active>span:hover{
+	background-color: #ff0000;
+	border-color: #ff0000;
+	color: white;
+}
+.readboy-pagination-default.pagination>li>a, .readboy-pagination-default.pagination>li>span{
+	color: #ff0000;
+}
+
+
+
+
+
+
+
+.readboy-pagination-circle.pagination>.active>a, .readboy-pagination-circle.pagination>.active>a:focus, .readboy-pagination-circle.pagination>.active>a:hover, .readboy-pagination-circle.pagination>.active>span, .readboy-pagination-circle.pagination>.active>span:focus, .readboy-pagination-circle.pagination>.active>span:hover{
+	background-color: #ff0000;
+	border-color: #ff0000;
+	color: white;
+}
+.readboy-pagination-circle.pagination>li>a, .readboy-pagination-circle.pagination>li>span{
+	color: #ff0000;
+}
+
+.readboy-pagination-circle a{
+	border-radius: 50%;
+	margin: 0px 5px;
+}
+.readboy-pagination-circle.pagination>li:first-child>a, .readboy-pagination-circle.pagination>li:first-child>span{
+	border-top-left-radius: 50%;
+	border-bottom-left-radius: 50%;
+}
+
+.readboy-pagination-circle.pagination>li:last-child>a, .readboy-pagination-circle.pagination>li:last-child>span{
+	border-top-right-radius: 50%;
+	border-bottom-right-radius: 50%;
+}
+
+
+
+
+.readboy-pager-center a{
+	color: black;
+}
+.readboy-pager-center a:focus, .readboy-pager-center a:hover{
+	color: #ff0000;
+}
+
+
+
+.readboy-pager-around a{
+	color: black;
+}
+.readboy-pager-around a:focus, .readboy-pager-around a:hover{
+	color: #ff0000;
+}
+
+.readboy-pager-around li:first-child{
+	float: left;
+}
+.readboy-pager-around li:last-child{
+	float: right;
+}

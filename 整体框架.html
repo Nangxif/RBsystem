@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+	<title>整体框架</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="./assests/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./assests/css/整体框架.css" />
+</head>
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid"> 
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#example-navbar-collapse">
+				<span class="sr-only">切换导航</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar icon-bar-half"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#"><img src="./assests/images/logo.png" /></a>
+		</div>
+		<div class="collapse navbar-collapse" id="example-navbar-collapse">
+			<ul class="nav navbar-nav navbar-nav-left">
+				<li><a href="#">首页</a></li>
+				<li><a href="#">表单</a></li>
+				<li><a href="#">翻页</a></li>
+				<li><a href="#">ICON</a></li>	
+			</ul>
+			<ul class="nav navbar-nav navbar-nav-right">
+				<li class="nav-search">
+					<form class="navbar-form" role="search">
+				        <div class="form-group">
+				            <input type="text" class="form-control" placeholder="Search">
+				        </div>
+				    </form>
+	    		</li>
+				<li class="dropdown navbar-self">
+					<a class="dropdown-toggle profile-pic" data-toggle="readboy-dropdown"> <img src="http://www.readboy.com/uploadfile/2018/0521/20180521092133616.png" alt="user-img" width="40" class="img-circle"><span>Readboy</span> </a>
+					<ul class="dropdown-menu">
+						<li>
+							<div class="user-box">
+								<div class="u-img"><img src="http://www.readboy.com/uploadfile/2018/0521/20180521092133616.png" alt="user"></div>
+								<div class="u-text">
+									<h4>Readboy</h4>
+									<p class="text-muted">hello@world.com</p>
+								</div>
+							</div>
+						</li>
+						<li class="divider"></li>
+						<li><a href="#">个人中心</a></li>
+						<li><a href="#">设置</a></li>
+						<li><a href="#">更改密码</a></li>
+						<li class="divider"></li>
+						<li><a href="#">退出</a></li>
+					</ul>
+					<div style="clear: both;"></div>
+	    		</li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+	
+
+
+	<div class="readboy-content">
+		
+	</div>	
+
+
+
+
+</body>
+<script src="./assests/js/jquery.min.js"></script>
+<script src="./assests/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$("*[data-toggle='readboy-dropdown']").on("click",function(){
+		if($(this).next().css("display")=="block"){
+			$(this).next().css("display","none");
+		}else{
+			$(this).next().css("display","block");
+		}
+	})
+</script>
+</html>

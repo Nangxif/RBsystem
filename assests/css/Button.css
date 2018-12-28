@@ -1,0 +1,30 @@
+.btn-red {
+    color: #fff;
+    background-color: #ff0000;
+    border-color: #ff0000;
+}
+
+.btn-red.focus, .btn-red:focus,.btn-red:hover {
+    color: #fff;
+    background-color: #db0505;
+    border-color: #db0505;
+}
+
+
+
+
+
+
+
+
+.btn-blue {
+    color: #fff;
+    background-color: #0ae;
+    border-color: #0ae;
+}
+
+.btn-blue.focus, .btn-blue:focus,.btn-blue:hover {
+    color: #fff;
+    background-color: #0ae;
+    border-color: #0ae;
+}
