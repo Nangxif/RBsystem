@@ -4,10 +4,12 @@
 	padding: 10px;
 	width: 100%;
 	border-bottom: 1px solid #e0e0e0;
+	box-sizing: border-box;
 }
 .readboy-file-list-icon{
 	flex: 0 0 66px;
 	height: 81px;
+	box-sizing: border-box;
 }
 .readboy-file-list-icon span{
 	display: block;
@@ -41,4 +43,5 @@
 	display: -webkit-box;
 	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
+	box-sizing: border-box;
 }

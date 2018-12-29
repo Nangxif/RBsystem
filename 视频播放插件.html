@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+	<title>视频播放插件</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="./assests/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./assests/plugin/videoJs/video-js.min.css">
+</head>
+<body>
+	<h3>一、简单的video</h3>
+	<video id="preview-player" class="video-js vjs-fluid placeholder" controls preload="auto" poster="https://vjs.zencdn.net/v/oceans.png">
+		<source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source>
+		<source src="https://vjs.zencdn.net/v/oceans.webm" type="video/webm"></source>
+		<source src="https://vjs.zencdn.net/v/oceans.ogv" type="video/ogg"></source>
+	</video>
+	<h4>使用方法</h4>
+	<p>视频采用的是video.js插件<a href="http://www.jq22.com/jquery-info404">[该插件具体详情点击此处]</a></p>
+	<p>在页面中引用<a href="./assests/plugin/videoJs/video-js.min.css">video-js.css样式文件</a>和<a href="./assests/plugin/videoJs/video.min.js">video.js</a></p>
+	<p><code>&lt;link href="video-js.css" rel="stylesheet" type="text/css"></code></p>
+	<p><code>&lt;script src="video.js">&lt;/script></code></p>
+	<p>相关HTML</p>
+	<p>poster="**"播放初始图。可使用三种视频格式，根据所需要格式选择对应的。</p>
+	<pre>
+&lt;video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
+      poster="http://video-js.zencoder.com/oceans-clip.png"
+      data-setup="{}">
+    &lt;source src="http://视频地址格式1.mp4" type='video/mp4' />
+    &lt;source src="http://视频地址格式2.webm" type='video/webm' />
+    &lt;source src="http://视频地址格式3.ogv" type='video/ogg' />
+&lt;/video>
+	</pre>
+	<p>js部分</p>
+	<pre>
+videojs("example_video_1", {}, function(){
+  // Player (this) is initialized and ready.
+});
+	</pre>
+	
+</body>
+<script src="./assests/js/jquery.min.js"></script>
+<script src="./assests/js/bootstrap.min.js"></script>
+<script src="./assests/plugin/videoJs/video.min.js"></script>
+<script type="text/javascript">
+
+	var options = {};
+
+	var player = videojs('preview-player', options, function() {
+	  videojs.log('Your player is ready!');
+
+	  // In this context, `this` is the player that was created by Video.js.
+	  this.play();
+
+	  // How about an event listener?
+	  this.on('ended', function() {
+	    videojs.log('Awww...over so soon?!');
+	  });
+	});
+
+</script>
+</html>

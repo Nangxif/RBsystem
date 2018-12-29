@@ -1,0 +1,42 @@
+.readboy-notify{
+	position: fixed;
+	left: 20px;
+	bottom: 20px;
+	z-index: 999;
+}
+.readboy-notify-item{
+	float:left;
+	margin: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 16px;
+	color: white;
+	cursor: pointer;
+	transform: scale(0);
+	transform-origin: center bottom;
+
+}
+.readboy-notify-last-status{
+	animation: status .5s;
+	animation-fill-mode : forwards;
+}
+@keyframes status
+{
+	from {transform: scale(0);}
+	to {transform: scale(1);}
+}
+.error{
+	background-color: #f32e28;
+}
+.success{
+	background-color: #40d840;
+}
+.warning{
+	background-color: #f0ad4e;
+}
+.default{
+	background-color: #e0e0e0;
+}
