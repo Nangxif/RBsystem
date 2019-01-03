@@ -6,7 +6,7 @@
 		}
 		this.index = 0;
 	}
-	Notify.prototype.createNotify = function(obj){//btn属性必须，不传报错
+	Notify.prototype.createNotify = function(obj){//btn属性必须传递，不传报错
 		if(obj){
 			var def = Object.assign({},this.default,obj);
 		}else{

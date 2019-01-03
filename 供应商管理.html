@@ -1,38 +1,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
-	<title>供应商管理</title>
-	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="stylesheet" href="./assests/css/bootstrap.min.css">
-	<link rel="stylesheet" href="./assests/css/Button.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+    <title>供应商管理</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="./assests/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assests/css/index.css" />
+    <style type="text/css">
+        .readboy-tab{
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+        }
+    </style>
 </head>
 <body>
-	<div class="navbar navbar-inverse navbar-fixed-top navbar-pad-original">
-        <div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top readboy-navbar" role="navigation">
+        <div class="container-fluid"> 
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only">切换导航</span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar icon-bar-half"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">供应商管理</a>
+                <a class="navbar-brand" href="#"><img src="./assests/images/logo.png" /></a>
             </div>
-            <div class="navbar-collapse collapse" style="height: 1px;">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.html">供应商分类</a></li>
-                     <li><a href="services.html">供应商信息</a></li>
-                    <li><a href="portfolio.html">物料分类</a></li>
-                     <li><a href="pricing.html">物料信息</a></li>
-                      <li><a href="contact.html">物料文档</a></li>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav navbar-nav-left">
+                    <li><a href="#Manger" data-src="./供应商管理.html">供应商信息</a></li>
+                    <li><a href="#Manger" data-src="./供应商管理.html">物料信息</a></li>
+                    <li><a href="#Manger" data-src="./供应商管理.html">物料文档</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-nav-right">
+                    <li class="dropdown navbar-self">
+                        <a class="dropdown-toggle profile-pic" data-toggle="readboy-dropdown"> <img src="http://www.readboy.com/uploadfile/2018/0521/20180521092133616.png" alt="user-img" width="40" class="img-circle"><span>Readboy</span> </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="user-box">
+                                    <div class="u-img"><img src="http://www.readboy.com/uploadfile/2018/0521/20180521092133616.png" alt="user"></div>
+                                    <div class="u-text">
+                                        <h4>Nangxi</h4>
+                                        <p class="text-muted">hello@world.com</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">个人中心</a></li>
+                            <li><a href="#">设置</a></li>
+                            <li><a href="#">更改密码</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">退出</a></li>
+                        </ul>
+                        <div style="clear: both;"></div>
+                    </li>
                 </ul>
             </div>
         </div>
-        
-    </div>
+    </nav>
+    <div class="readboy-content">
+        <div class="readboy-content-wrapper">
+            <div class="readboy-content-wrapper-right">
+                <div class="readboy-content-box">
+                    <form class="readboy-content-search">
+                        <input type="text" placeholder="查找"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+
+
+
+
+
 </body>
 <script src="./assests/js/jquery.min.js"></script>
 <script src="./assests/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    // 控制右上角个人中心显示隐藏
+    $("*[data-toggle='readboy-dropdown']").on("mouseover",function(){
+            $(this).next().css("display","block");
+    })
+    $("*[data-toggle='readboy-dropdown']").on("mouseout",function(){
+            $(this).next().css("display","none");
+    })
+    $("*[data-toggle='readboy-dropdown']").next().mouseover(function(){
+        $(this).css("display","block");
+    })
+    $("*[data-toggle='readboy-dropdown']").next().mouseout(function(){
+        $(this).css("display","none");
+    })
+
+</script>
 </html>
+
+

@@ -7,7 +7,7 @@
 	<title>读书郎**管理系统</title>
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" href="./assests/css/bootstrap.min.css">
-	<link rel="stylesheet" href="./assests/css/整体框架.css" />
+	<link rel="stylesheet" href="./assests/css/index.css" />
 	<style type="text/css">
 		html,body{
 			width: 100%;
@@ -26,7 +26,7 @@
 	</style>
 </head>
 <body>
-	<nav class="navbar navbar-default" role="navigation">
+	<nav class="navbar navbar-default readboy-navbar" role="navigation">
 		<div class="container-fluid"> 
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -48,18 +48,11 @@
 					<li><a href="#Modal" data-src="./Modal.html">弹框</a></li>
 					<li><a href="#Button" data-src="./Button.html">按钮</a></li>
 					<li><a href="#Text" data-src="./富文本框.html">富文本框</a></li>
-					<li><a href="#Manger" data-src="./供应商管理.html">供应商管理</a></li>
+					<!-- <li><a href="#Manger" data-src="./供应商管理.html">供应商管理</a></li> -->
 				</ul>
 				<ul class="nav navbar-nav navbar-nav-right">
-					<li class="nav-search">
-						<form class="navbar-form" role="search">
-					        <div class="form-group">
-					            <input type="text" class="form-control" placeholder="Search">
-					        </div>
-					    </form>
-		    		</li>
 					<li class="dropdown navbar-self">
-						<a class="dropdown-toggle profile-pic" data-toggle="readboy-dropdown"> <img src="http://www.readboy.com/uploadfile/2018/0521/20180521092133616.png" alt="user-img" width="40" class="img-circle"><span>Readboy</span> </a>
+						<a class="dropdown-toggle profile-pic" data-toggle="readboy-dropdown"> <img src="http://www.readboy.com/uploadfile/2017/1214/20171214100505480.jpg" alt="user-img" width="40" class="img-circle"><span>Readboy</span> </a>
 						<ul class="dropdown-menu">
 							<li>
 								<div class="user-box">
@@ -83,7 +76,7 @@
 			</div>
 		</div>
 	</nav>
-	<div class="readboy-content" style="overflow-y: hidden;padding-bottom: 70px;">
+	<div style="overflow-y: hidden;padding-bottom: 100px;margin-top: 100px;width: 100%;height: 100%;overflow-x: hidden;">
 		<iframe src="" class="readboy-content-iframe"></iframe>
 	</div>	
 
@@ -97,13 +90,18 @@
 <script src="./assests/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	// 控制右上角个人中心显示隐藏
-	$("*[data-toggle='readboy-dropdown']").on("click",function(){
-		if($(this).next().css("display")=="block"){
-			$(this).next().css("display","none");
-		}else{
-			$(this).next().css("display","block");
-		}
-	})
+	$("*[data-toggle='readboy-dropdown']").on("mouseover",function(){
+            $(this).next().css("display","block");
+    })
+    $("*[data-toggle='readboy-dropdown']").on("mouseout",function(){
+            $(this).next().css("display","none");
+    })
+    $("*[data-toggle='readboy-dropdown']").next().mouseover(function(){
+        $(this).css("display","block");
+    })
+    $("*[data-toggle='readboy-dropdown']").next().mouseout(function(){
+        $(this).css("display","none");
+    })
 
 
 
