@@ -4,17 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
-    <title>供应商管理</title>
+    <title>供应商详细信息</title>
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="./assests/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assests/css/index.css" />
-    <style type="text/css">
-        .readboy-tab{
-            width: 100%;
-            height: 50px;
-            line-height: 50px;
-        }
-    </style>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top readboy-navbar" role="navigation">
@@ -31,8 +24,8 @@
             </div>
             <div class="collapse navbar-collapse" id="example-navbar-collapse">
                 <ul class="nav navbar-nav navbar-nav-left">
-                    <li><a href="#Manger" data-src="./供应商管理.html">供应商信息</a></li>
-                    <li><a href="#Manger" data-src="./供应商管理.html">物料信息</a></li>
+                    <li class="active"><a href="./供应商管理.html">供应商信息</a></li>
+                    <li><a href="./物料信息.html">物料信息</a></li>
                     <li><a href="#Manger" data-src="./供应商管理.html">物料文档</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-nav-right">
@@ -63,11 +56,38 @@
     </nav>
     <div class="readboy-content">
         <div class="readboy-content-wrapper">
-            <div class="readboy-content-wrapper-right">
-                <div class="readboy-content-box">
-                    <form class="readboy-content-search">
-                        <input type="text" placeholder="查找"/>
-                    </form>
+            <div class="readboy-content-wrapper-center">
+                <ol class="breadcrumb">
+                  <li><a href="#">供应商信息</a></li>
+                  <li><a href="#">供应商分类</a></li>
+                  <li class="active">物料信息</li>
+                </ol>
+                <div class="readboy-self-introduction">
+                    <div class="readboy-self-introduction-tip">
+                        <div class="readboy-self-introduction-avatar"><img src="./assests/images/default-1-1722db77bb.png"/></div>
+                        <div class="readboy-self-introduction-name">读书郎数据线供应商1</div>
+                    </div>
+                </div>
+
+                <div class="readboy-tab">
+                    <ul class="readboy-tab-item">
+                        <li><a href="./供应商详细信息-基础信息.html">基础信息</a></li>
+                        <li class="active"><a href="javascript:;">物料信息</a></li>
+                        <li><a href="./供应商详细信息-文档信息.html">文档信息</a></li>
+                        <li><a href="./供应商详细信息-联系人信息.html">联系人信息</a></li>
+                        <li><a href="./供应商详细信息-评分体系.html">评分体系</a></li>
+                    </ul>
+                </div>
+                <div style="padding-left:20px; padding-right: 20px;">
+                    <div class="readboy-list">
+                        <div class="readboy-list-item">
+                            <div class="readboy-list-items">物料名称</div>
+                            <div class="readboy-list-items">读书郎数据线</div>
+                        </div>
+                    </div>
+                    <div>
+                        <a class="readboy-more" href="./物料信息.html">更多物料信息»</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -81,22 +101,7 @@
 </body>
 <script src="./assests/js/jquery.min.js"></script>
 <script src="./assests/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-    // 控制右上角个人中心显示隐藏
-    $("*[data-toggle='readboy-dropdown']").on("mouseover",function(){
-            $(this).next().css("display","block");
-    })
-    $("*[data-toggle='readboy-dropdown']").on("mouseout",function(){
-            $(this).next().css("display","none");
-    })
-    $("*[data-toggle='readboy-dropdown']").next().mouseover(function(){
-        $(this).css("display","block");
-    })
-    $("*[data-toggle='readboy-dropdown']").next().mouseout(function(){
-        $(this).css("display","none");
-    })
-
-</script>
+<script src="./assests/js/readboy.js"></script>
 </html>
 
 
