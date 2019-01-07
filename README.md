@@ -1,0 +1,1 @@
+富文本框图片上传地址在readboySystem\assests\plugin\utf8-php\php\imageUp.php修改。$config对象的savePath属性
