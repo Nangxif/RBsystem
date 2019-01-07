@@ -26,20 +26,23 @@
 	</style>
 </head>
 <body>
-	<nav class="navbar navbar-default readboy-navbar" role="navigation">
-		<div class="container-fluid"> 
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#example-navbar-collapse">
-					<span class="sr-only">切换导航</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar icon-bar-half"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#"><img src="./assests/images/logo.png" /></a>
-			</div>
-			<div class="collapse navbar-collapse" id="example-navbar-collapse">
-				<ul class="nav navbar-nav navbar-nav-left">
+    <nav class="readboy-nav">
+        <div class="readboy-nav-contant">
+            <div class="readboy-nav-header">
+                <div class="readboy-nav-logo">
+                    <img src="./assests/images/logo.png"/>
+                </div>
+                <div class="readboy-nav-btn"><!--汉堡按钮-->
+                    <button type="button" class="btn" data-dropdown="dropdown">
+                        <span class="readboy-hr"></span>
+                        <span class="readboy-hr"></span>
+                        <span class="readboy-hr"></span>
+                    </button>
+                </div>
+            </div>
+            <!--菜单栏列表-->
+            <div class="readboy-nav-list">
+                <ul class="readboy-nav-list-item">
 					<li><a href="#Home" data-src="./首页.html">首页</a></li>
 					<li><a href="#Form" data-src="./表单.html">表单</a></li>
 					<li><a href="#Paging" data-src="./翻页.html">翻页</a></li>
@@ -49,34 +52,33 @@
 					<li><a href="#Button" data-src="./Button.html">按钮</a></li>
 					<li><a href="#Text" data-src="./富文本框.html">富文本框</a></li>
 					<!-- <li><a href="#Manger" data-src="./供应商管理.html">供应商管理</a></li> -->
-				</ul>
-				<ul class="nav navbar-nav navbar-nav-right">
-					<li class="dropdown navbar-self">
-						<a class="dropdown-toggle profile-pic" data-toggle="readboy-dropdown"> <img src="http://www.readboy.com/uploadfile/2017/1214/20171214100505480.jpg" alt="user-img" width="40" class="img-circle"><span>Readboy</span> </a>
-						<ul class="dropdown-menu">
-							<li>
-								<div class="user-box">
-									<div class="u-img"><img src="http://www.readboy.com/uploadfile/2018/0521/20180521092133616.png" alt="user"></div>
-									<div class="u-text">
-										<h4>Nangxi</h4>
-										<p class="text-muted">hello@world.com</p>
-									</div>
-								</div>
-							</li>
-							<li class="divider"></li>
-							<li><a href="#">个人中心</a></li>
-							<li><a href="#">设置</a></li>
-							<li><a href="#">更改密码</a></li>
-							<li class="divider"></li>
-							<li><a href="#">退出</a></li>
-						</ul>
-						<div style="clear: both;"></div>
-		    		</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<div style="overflow-y: hidden;padding-bottom: 100px;width: 100%;height: 100%;overflow-x: hidden;">
+                </ul>
+                <!-- 移动端模式下的个人中心按钮 -->
+                <ul class="readboy-nav-list-item readboy-nav-list-self-mobile">
+                    <li><a><img src="http://www.readboy.com/uploadfile/2018/0521/20180521092133616.png" width="40" height="40" style="margin-right: 5px;" /><span>小小读书郎</span></a>
+                        <ul>
+                            <li><a href="javascript:;">个人中心</a></li>
+                            <li><a href="javascript:;">设置</a></li>
+                            <li><a href="javascript:;">更改密码</a></li>
+                            <li><a href="javascript:;">退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- pc端模式下的个人中心按钮 -->
+                <ul class="readboy-nav-list-item readboy-nav-list-self">
+                    <li><a><img src="http://www.readboy.com/uploadfile/2018/0521/20180521092133616.png" width="40" height="40" style="margin-right: 5px;" /><span>小小读书郎</span></a>
+                        <ul>
+                            <li><a href="javascript:;">个人中心</a></li>
+                            <li><a href="javascript:;">设置</a></li>
+                            <li><a href="javascript:;">更改密码</a></li>
+                            <li><a href="javascript:;">退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+	<div style="overflow-y: hidden;padding-bottom: 100px;width: 100%;height: 100%;overflow-x: hidden;margin-top: 100px;">
 		<iframe src="" class="readboy-content-iframe"></iframe>
 	</div>	
 
@@ -88,37 +90,17 @@
 </body>
 <script src="./assests/js/jquery.min.js"></script>
 <script src="./assests/js/bootstrap.min.js"></script>
+<script src="./assests/js/readboy.js"></script>
 <script type="text/javascript">
-	// 控制右上角个人中心显示隐藏
-	$("*[data-toggle='readboy-dropdown']").on("mouseover",function(){
-            $(this).next().css("display","block");
-    })
-    $("*[data-toggle='readboy-dropdown']").on("mouseout",function(){
-            $(this).next().css("display","none");
-    })
-    $("*[data-toggle='readboy-dropdown']").next().mouseover(function(){
-        $(this).css("display","block");
-    })
-    $("*[data-toggle='readboy-dropdown']").next().mouseout(function(){
-        $(this).css("display","none");
-    })
-
-
-
-
 
 	if(window.location.hash){
 		$(".readboy-content-iframe").attr("src",$("a[href='"+window.location.hash+"']").data("src"));
 		$("a[href='"+window.location.hash+"']").parent().addClass("active");
-		// $("a[href='"+window.location.hash+"']").parent().scrollInToView();
-		// document.querySelector("a[href='"+window.location.hash+"']").parentNode[0].scrollInToView();
 	}else{
 		document.getElementsByClassName('readboy-content-iframe')[0].contentWindow.location.replace($("a[data-src]").eq(0).data("src"));
-		// $(".readboy-content-iframe").attr("src",$("a[data-src]").eq(0).data("src"));
 		$(".navbar-nav-left li").eq(0).addClass("active");
 	}
 	$("a[data-src]").on("click",function(){
-		// $(".readboy-content-iframe").attr("src",$(this).data("src"));
 		document.getElementsByClassName('readboy-content-iframe')[0].contentWindow.location.replace($("a[data-src]").eq(0).data("src"));
 	})
 	window.addEventListener("popstate",function(){

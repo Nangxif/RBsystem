@@ -1,172 +1,238 @@
-@media (min-width: 1080px){
-	.container-fluid{
-		width: 1080px;
-		padding-left: 0px;
-		padding-right: 0px;
-	}
+.readboy-nav{/*最外部的nav*/
+	position: fixed;
+	top: 0px;
+	transition: height .5s;
+	border-bottom: 1px solid #D8D8D8;
+	z-index: 99;
 }
-
-@media (min-width: 768px){
-	.container-fluid{
-		display: flex;
-	}
-	.navbar-nav>li>a {
-	    padding-top: 28px;
-	    padding-bottom: 28px;
-	}
-	.container-fluid .navbar-header{
-		flex:0 0 180px;
-		text-align: center;
-	}
-	.container-fluid .navbar-collapse{
-		flex: 1;
-		padding-left: 0px;
-		padding-right: 0px;
-	}
-	.navbar-nav-left{
-		float: left;
-		/*max-width: 530px;
-		height: 50px;
-		overflow-x: auto;
-		overflow-y: hidden;
-		white-space: nowrap;*/
-	}
-	.navbar-nav-left li{
-		float: none;
-		display: inline-block;
-	}
-	.navbar-nav-right{
-		float: right;
-	}
-	.navbar-brand{
-		margin-top: 13px;
-		margin-bottom: 13px;
-	}
+.readboy-nav-contant{/*控制顶部导航条宽度的div*/
+	position: relative;
+	display: flex;
+	height: 100%;
+	margin: 0 auto;
 }
-
-
-.readboy-navbar{
+.readboy-nav-header{/*移动端的头部，包括logo和汉堡按钮*/
+	overflow: hidden;
+	height: 100%;
 	background-color: white;
 }
-.navbar-brand{
-	display: flex;
-	align-items: center;
-	padding: 0px 15px 0px 15px;
+.readboy-nav-logo{
+	float:left;
+	position: relative;
+	height: 100%;
+	width: 200px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
-.navbar-brand img{
-	display: block;
+.readboy-nav-logo img{
+	margin: auto;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
 	width: auto;
+	height: auto;
+	max-width: calc(100% - 30px);
+	max-height: 100%;
+}
+/*汉堡按钮*/
+.readboy-nav-btn{
+	position: relative;
+	float: right;
+	width: 45px;
 	height: 50px;
 }
-.dropdown-menu{
-	border: 1px solid rgba(120, 130, 140, 0.13);
-	box-shadow: none !important;
-	padding-top:0px;
-	padding-bottom:0px;
-	margin-top: 0px;
+.readboy-nav-btn .btn{
+	margin: auto;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	width: 34px;
+	height: 34px;
+	padding: 0px;
+	background-color: rgba(255,0,0,0.1);
+    background-image: none;
+    outline: none;
+    cursor: pointer;
 }
-.dropdown-menu>li>a{
-	padding: 10px 20px;
+.readboy-nav-btn .btn:focus {outline:none;}
+.readboy-nav-btn .readboy-hr{
+	position: absolute;
+	left: 6px;
+	display: block;
+	width: 20px;
+	height: 2px;
+	background-color: rgba(136,136,136,0.6);
+	border-radius: 1px;
 }
-.icon-bar-half{
-	width: 11px !important;
-	margin-left: 11px;
+.readboy-nav-btn .readboy-hr:nth-child(1){
+	top:9px;
+}
+.readboy-nav-btn .readboy-hr:nth-child(2){
+	top:16px;
+}
+.readboy-nav-btn .readboy-hr:nth-child(3){
+	top:23px;
 }
 
-
-.navbar-self{
-	height: 76px;
-	cursor: pointer;
-	user-select: none;
-}
-.profile-pic{
-	padding: 0px !important;
-	padding-top: 18px !important;
-	padding-left: 15px !important;
-	padding-right: 15px !important;
+/*列表组*/
+.readboy-nav-list{
+	flex: 1;
 	height: 100%;
+	transition: display .5s,top .5s;
+	background-color: white;
 }
-.profile-pic img{
-	margin-right: 5px;
+.readboy-nav-list .readboy-nav-list-item{
+	margin: 0px;
+	padding: 0px;
+	font-size: 0px;
 }
-.user-box{
-	display: flex;
-	padding: .25rem 1rem;
+.readboy-nav-list .readboy-nav-list-item{
+	float: left;
+	padding: 0px 0px 0px 10px;
+	background-color: rgba(255,255,255);
 }
-.user-box .u-img{
-	width: 80px;
+.readboy-nav-list .readboy-nav-list-item.readboy-nav-list-self{
+	float: right;
+	position: relative;
 }
-.user-box .u-img img{
-	border-radius: 5px;
-	width:100%;
-}
-.user-box .u-text{
-	padding: 0 10px;
-}
-.user-box .u-text h4{
-	margin-bottom: 0;
-	font-size: 18px;
-}
-.user-box .u-text .text-muted{
-	font-size: 13px;
-	margin-bottom: 15px;
-	color: #6c757d;
-}
-
-
-.navbar-form{
-	border-color: transparent !important;
-}
-.navbar-self .dropdown-menu{
-	left: unset;
-	right: 0px;
+.readboy-nav-list-item.readboy-nav-list-self img{
+	border-radius: 50%;
 }
 
 
 
+/*所有小项的样式*/
+.readboy-nav-list-item li{
+	display: inline-block;
+}
+.readboy-nav-list-item li a{
+	display: inline-block;
+	padding-left: 15px;
+	padding-right: 15px;
+	text-decoration: none;
+	font-size: 17px;
+	color: #666;
+	user-select: none;
+	transition: background-color .3s,color .3s;
+	cursor: pointer;
+}
+.readboy-nav-list-item li a:hover{
+	background-color: red;
+	color: white;
+}
 
 
-@media (max-width: 767px){
-	.navbar-nav{
-		margin:7.5px 0px;
+
+
+
+
+@media (min-width: 1200px){
+	.readboy-nav-contant{
+		width: 1200px;
 	}
-	.navbar-form{
-		margin-top: 0px;
-		padding-top: 0px;
-	}
-	.dropdown-menu{
-		position: static;
+}
+@media (max-width: 1200px){
+	.readboy-nav-contant{
 		width: 100%;
 	}
 }
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
-	background-color: #ff0000;
-    color: #fff;
-}
-.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
-	background-color: #ff0000;
-    color: #fff;
-}
-#example-navbar-collapse a{
-	transition:background-color .5s,color .5s;
-	-moz-transition:background-color .5s,color .5s; 
-	-webkit-transition:background-color .5s,color .5s; 
-	-o-transition:background-color .5s,color .5s; 
-}
-#example-navbar-collapse a:hover{
-	background-color: #ff0000;
-    color: #fff;
+
+
+@media (min-width: 767px){
+	.readboy-nav{
+		width: 100%;
+		height: 76px;
+	}
+	.readboy-nav-header{
+		flex: 0 0 200px;
+	}
+	.readboy-nav-list{
+		display: block;
+	}
+
+	.readboy-nav-list-item{/*pc端定义列表高度*/
+		height: 75px;
+	}
+	/*判断pc端和移动端显示哪个头像*/
+	.readboy-nav-list .readboy-nav-list-item.readboy-nav-list-self{
+		display: block;
+	}
+	.readboy-nav-list .readboy-nav-list-item.readboy-nav-list-self-mobile{
+		display: none;
+	}
+	.readboy-nav-list-item>li>a{
+		line-height: 76px;
+	}
+	.readboy-nav-list-item li ul{
+		display:none; 
+		position: absolute;
+		top: 76px;
+		right: 0px;
+		width: 200px;
+		padding: 0px;
+		border: 1px solid #ddd;
+	}
+	.readboy-nav-list-item li ul li{
+		display: block;
+		width: 100%;
+	}
+	.readboy-nav-list-item li ul li a{
+		width: 100%;
+		line-height: 40px;
+		font-size: 15px;
+	}
 }
 @media (max-width: 767px){
-	.navbar-nav .open .dropdown-menu .dropdown-header, .navbar-nav .open .dropdown-menu>li>a {
-		padding: 10px 15px;
-	}
-	.navbar-nav .open .dropdown-menu {
+	.readboy-nav{
 		width: 100%;
-		float: left;
-	}
-	.nav-search{
 		height: 50px;
+	}
+	.readboy-nav-header{
+		flex: 1;
+	}
+	.readboy-nav-list{
+		display: none;
+		position: absolute;
+		left: 0px;
+		top: -100px;
+		width: 100%;
+	}
+	.readboy-nav-list.show{
+		display: block;
+		top: 50px;
+	}
+	.readboy-nav-list.rhidden{
+		display: none;
+		top: -100px;
+	}
+	.readboy-nav-list-item{/*移动端定义列表高度*/
+		width: 100%;
+		padding: 0px !important;
+	}
+	.readboy-nav-list-item li,.readboy-nav-list-item li a{
+		width: 100%;
+	}
+
+	/*判断pc端和移动端显示哪个头像*/
+	.readboy-nav-list .readboy-nav-list-item.readboy-nav-list-self{
+		display: none;
+	}
+	.readboy-nav-list .readboy-nav-list-item.readboy-nav-list-self-mobile{
+		display: block;
+		border-bottom: 1px solid #ddd;
+	}
+
+	.readboy-nav-list-item>li>a{
+		line-height: 50px;
+	}
+	.readboy-nav-list-item li ul{
+		padding: 0px 0px 0px 10px;
+	}
+	.readboy-nav-list-item li ul li a{
+		line-height: 40px;
+		font-size: 14px;
 	}
 }
 

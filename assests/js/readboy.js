@@ -1,24 +1,28 @@
 $(function(){
-	// 控制右上角个人中心显示隐藏
-    $("*[data-toggle='readboy-dropdown']").on("mouseover",function(){
-            $(this).next().css("display","block");
+    // 顶部菜单栏
+	$(".readboy-nav-list-item.readboy-nav-list-self li a").on("mouseover",function(){
+        $(this).next().css({"display":"block"});
     })
-    $("*[data-toggle='readboy-dropdown']").on("mouseout",function(){
-            $(this).next().css("display","none");
+    $(".readboy-nav-list-item.readboy-nav-list-self li a").on("mouseout",function(){
+        $(this).next().css({"display":"none"});
     })
-    $("*[data-toggle='readboy-dropdown']").next().mouseover(function(){
-        $(this).css("display","block");
+    $(".readboy-nav-list-item.readboy-nav-list-self li ul").on("mouseover",function(){
+        $(this).css({"display":"block"});
     })
-    $("*[data-toggle='readboy-dropdown']").next().mouseout(function(){
-        $(this).css("display","none");
+    $(".readboy-nav-list-item.readboy-nav-list-self li ul").on("mouseout",function(){
+        $(this).css({"display":"none"});
     })
-    // $(window).on('click',function(e) {
-    //     console.log($(e.target));
-    //     if(e.target.id != 'btn' && e.target.id != 'overlay'){
 
-    //     }
-            
-    // })
+
+    $("button[data-dropdown='dropdown']").on("click",function(){
+        if($(".readboy-nav-list").css("display")=="none"){
+            $(".readboy-nav-list").removeClass("rhidden");
+            $(".readboy-nav-list").addClass("show");
+        }else{
+            $(".readboy-nav-list").removeClass("show");
+            $(".readboy-nav-list").addClass("rhidden");
+        }
+    })
 
 
 

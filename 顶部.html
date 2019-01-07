@@ -24,8 +24,6 @@
     	.readboy-nav-header{/*移动端的头部，包括logo和汉堡按钮*/
     		overflow: hidden;
     		height: 100%;
-    		padding-left: 10px;
-    		padding-right: 10px;
     		background-color: white;
     	}
     	.readboy-nav-logo{
@@ -33,6 +31,8 @@
     		position: relative;
     		height: 100%;
     		width: 200px;
+    		padding-left: 10px;
+    		padding-right: 10px;
     	}
     	.readboy-nav-logo img{
     		margin: auto;
@@ -43,14 +43,14 @@
     		bottom: 0px;
 			width: auto;
 			height: auto;
-			max-width: 100%;
+			max-width: calc(100% - 30px);
 			max-height: 100%;
     	}
     	/*汉堡按钮*/
     	.readboy-nav-btn{
     		position: relative;
     		float: right;
-    		width: 34px;
+    		width: 45px;
     		height: 50px;
     	}
     	.readboy-nav-btn .btn{
@@ -90,6 +90,7 @@
 		.readboy-nav-list{
 			flex: 1;
 			height: 100%;
+			transition: display .5s,top .5s;
 		}
 		.readboy-nav-list .readboy-nav-list-item{
 			margin: 0px;
@@ -161,7 +162,7 @@
 			}
 
 			.readboy-nav-list-item{/*pc端定义列表高度*/
-				height: 76px;
+				height: 75px;
 			}
 			/*判断pc端和移动端显示哪个头像*/
 			.readboy-nav-list .readboy-nav-list-item.readboy-nav-list-self{
@@ -205,6 +206,15 @@
 				position: absolute;
 				left: 0px;
 				top: -100px;
+				width: 100%;
+			}
+			.readboy-nav-list.show{
+				display: block;
+				top: 50px;
+			}
+			.readboy-nav-list.rhidden{
+				display: none;
+				top: -100px;
 			}
 			.readboy-nav-list-item{/*移动端定义列表高度*/
 				width: 100%;
@@ -243,7 +253,7 @@
 				<div class="readboy-nav-logo">
 					<img src="./assests/images/logo.png"/>
 				</div>
-				<div class="readboy-nav-btn">
+				<div class="readboy-nav-btn"><!--汉堡按钮-->
 					<button type="button" class="btn" data-dropdown="dropdown">
 						<span class="readboy-hr"></span>
 						<span class="readboy-hr"></span>
@@ -251,17 +261,14 @@
 					</button>
 				</div>
 			</div>
-			
-
+			<!--菜单栏列表-->
 			<div class="readboy-nav-list">
 				<ul class="readboy-nav-list-item">
 					<li><a href="#">供应商信息</a></li>
 					<li><a href="#">物料信息</a></li>
 					<li><a href="#">物料文档</a></li>
 				</ul>
-				
-
-
+				<!-- 移动端模式下的个人中心按钮 -->
 				<ul class="readboy-nav-list-item readboy-nav-list-self-mobile">
 					<li><a><img src="http://www.readboy.com/uploadfile/2018/0521/20180521092133616.png" width="40" height="40" style="margin-right: 5px;" /><span>小小读书郎</span></a>
 						<ul>
@@ -272,9 +279,7 @@
 						</ul>
 					</li>
 				</ul>
-
-
-
+				<!-- pc端模式下的个人中心按钮 -->
 				<ul class="readboy-nav-list-item readboy-nav-list-self">
 					<li><a><img src="http://www.readboy.com/uploadfile/2018/0521/20180521092133616.png" width="40" height="40" style="margin-right: 5px;" /><span>小小读书郎</span></a>
 						<ul>
@@ -286,10 +291,7 @@
 					</li>
 				</ul>
 			</div>
-			
 		</div>
-		
-
 	</nav>
 </body>
 <script src="./assests/js/jquery.min.js"></script>
@@ -311,15 +313,11 @@
 
 	$("button[data-dropdown='dropdown']").on("click",function(){
 		if($(".readboy-nav-list").css("display")=="none"){
-			$(".readboy-nav-list").animate({
-				"top":"50px"
-			},500)
-			$(".readboy-nav-list").css("display","block");
+			$(".readboy-nav-list").removeClass("rhidden");
+			$(".readboy-nav-list").addClass("show");
 		}else{
-			$(".readboy-nav-list").animate({
-				"top":"-100px"
-			},500)
-			$(".readboy-nav-list").fadeOut(400);
+			$(".readboy-nav-list").removeClass("show");
+			$(".readboy-nav-list").addClass("rhidden");
 		}
 		
 	})
