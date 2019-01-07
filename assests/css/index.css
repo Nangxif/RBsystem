@@ -90,7 +90,7 @@
 .readboy-nav-list .readboy-nav-list-item{
 	float: left;
 	padding: 0px 0px 0px 10px;
-	background-color: rgba(255,255,255);
+	background-color: white;
 }
 .readboy-nav-list .readboy-nav-list-item.readboy-nav-list-self{
 	float: right;
@@ -172,7 +172,7 @@
 		width: 200px;
 		padding: 0px;
 		border: 1px solid #ddd;
-		background-color: rgba(255,255,255);
+		background-color: white;
 	}
 	.readboy-nav-list-item li ul li{
 		display: block;
