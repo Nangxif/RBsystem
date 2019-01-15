@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+	<title>文本框选择</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="./assests/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./assests/css/文本框选择.css" />
+	<link rel="stylesheet" href="./assests/css/index.css" />
+	<style type="text/css">
+		.readboy-tag-checkbox{
+			display: flex;
+		}
+		.readboy-tag-checkbox p{
+			flex: 1;
+			margin-top: 10px;
+		}
+		.readboy-tag-checkbox input{
+			flex: 0 0 20px;
+			margin-top: 12px;
+		}
+	</style>
+</head>
+<body>
+	<h3>文档列表布局</h3>
+
+	<div class="readboy-tag" data-toggle="modal" data-target="#tagModal">
+		
+	</div>
+
+	<!-- 模态框（Modal） -->
+	<div class="modal fade" id="tagModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel">
+						选择成员
+					</h4>
+				</div>
+				<div class="modal-body readboy-modal-body">
+					<div class="readboy-tag">
+						
+					</div>
+					<ul id="myTab" class="nav nav-tabs">
+						<li class="active">
+							<a href="#apartment" data-toggle="tab">
+								 选择部门
+							</a>
+						</li>
+						<li><a href="#staff" data-toggle="tab">选择成员</a></li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="apartment">
+							<div style="display: inline-block;width: 100%;" class="left-apart">
+							</div>
+						</div>
+						<div class="tab-pane fade" id="staff">
+							<div style="display: inline-block;width: 40%;" class="left-apart">
+								<div class="readboy-menu readboy-menu-2">
+									<ul class="readboy-menu-ul">
+										
+									</ul>
+								</div>
+							</div>
+							<div style="display: inline-block;width: 59%;vertical-align: top;" class="right-apart">
+								
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消
+					</button>
+					<button type="button" class="btn btn-primary" id="selectStaff">
+						确认
+					</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+</body>
+<script src="./assests/js/jquery.min.js"></script>
+<script src="./assests/js/bootstrap.min.js"></script>
+<script src="./assests/js/readboy.js"></script>
+<script type="text/javascript">
+
+	var apartment = [
+		{
+			"name":"行政部",
+			"children":[{
+				"name":"保安"
+			}]
+		},
+		{
+			"name":"品质部",
+			"children":[
+			{
+				"name":"软件实验室"
+			},{
+				"name":"IQC"
+			},{
+				"name":"硬件实验室",
+				"children":[{"name":"硬件检验"}]
+			},{
+				"name":"成品科",
+				"children":[{
+					"name":"FQC3楼"
+				},{
+					"name":"FQC4楼"
+				},{
+					"name":"QA.QQC"
+				}]
+			}]
+		},
+		{
+			"name":"平台开发部"
+		}
+	]
+
+	$(".readboy-tag[data-target='#tagModal']").on("click",function(){
+		$(".readboy-modal-body .readboy-tag").html($(this).html());
+		var selectLen = $(".readboy-modal-body .readboy-tag .readboy-tag-item").length;
+		$("#apartment input").prop("checked",false);
+		$("#staff .right-apart input").prop("checked",false);
+		for(var n = 0;n<selectLen;n++ ){
+			for(var p=0;p<$("#apartment input").length;p++){
+				var isCheck = false;
+				if($(".readboy-modal-body .readboy-tag .readboy-tag-item").eq(n).data("val")==$("#apartment input").eq(p).val()){
+					isCheck = true;
+				}
+				if(isCheck){
+					$("#apartment input").eq(p).prop("checked",true);
+				}
+			}
+			for(var q = 0;q<$("#staff .right-apart input").length;q++){
+				var isCheck = false;
+				if($(".readboy-modal-body .readboy-tag .readboy-tag-item").eq(n).data("val")==$("#staff .right-apart input").eq(q).val()){
+					isCheck = true;
+				}
+				if(isCheck){
+					$("#staff .right-apart input").eq(q).prop("checked",true);
+				}
+			}
+		}
+	})
+	$("#apartment>.left-apart").append(`<div class="readboy-menu" style="width:100%">
+										<ul class="readboy-menu-ul">
+										</ul>
+									</div>`);
+	function findchildrenElement(data,ele) {
+		var Len = data.length;
+		for(var i=0;i<Len;i++){
+			if(data[i].name){
+				if(data[i].children){
+					$(ele).append(`<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>${data[i].name}
+										<input type="checkbox" value="${data[i].name}" style="float:right"/>
+										</a>
+										<ul class="readboy-menu-ul" data-name="${data[i].name}"></ul>
+										</li>`);
+					findchildrenElement(data[i].children,ele+">li>ul[data-name='"+data[i].name+"']");
+				}else{
+					$(ele).append(`<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>${data[i].name}
+										<input type="checkbox" value="${data[i].name}" style="float:right"/>
+									</a></li>`);
+				}
+			}
+		}
+	}
+	findchildrenElement(apartment,"#apartment>.left-apart>.readboy-menu>ul");
+	$(".readboy-modal-body .readboy-menu-item input").on("click",function(e){
+		e.stopPropagation();
+		if($(this).is(":checked")){
+			$(".readboy-modal-body .readboy-tag").append(`<div class="readboy-tag-item" data-val="${$(this).val()}"><span class="close">&times;</span>${$(this).val()}</div>`);
+			$(".readboy-tag-item .close").on("click",function(e){
+				e.stopPropagation();
+				$(".readboy-menu-item input[value='"+$(this).parent().data("val")+"']").attr("checked",false);
+				$(this).parent().remove();
+			})
+		}else{
+			$(".readboy-modal-body .readboy-tag").find(".readboy-tag-item[data-val='"+$(this).val()+"']").remove();
+		}
+	})
+	$(".readboy-tag-item .close").on("click",function(e){
+		e.stopPropagation();
+		$(this).parent().remove();
+	})
+
+
+
+	var staff = [
+		{
+			"name":"行政部",
+			"staff": ["[001]阿七","[002]阿哥","[003]阿隆","[004]阿东","[005]阿强"],
+			"children":[{
+				"name":"保安",
+				"staff": ["[011]阿七","[012]阿哥","[013]阿隆","[014]阿东","[015]阿强"]
+			}]
+		},
+		{
+			"name":"品质部",
+			"staff": ["[021]阿七","[022]阿哥","[023]阿隆","[024]阿东","[025]阿强"],
+			"children":[
+			{
+				"name":"软件实验室",
+				"staff": ["[031]阿七","[032]阿哥","[033]阿隆","[034]阿东","[035]阿强"]
+			},{
+				"name":"IQC",
+				"staff": ["[041]阿七","[042]阿哥","[043]阿隆","[044]阿东","[045]阿强"]
+			},{
+				"name":"硬件实验室",
+				"staff": ["[051]阿七","[052]阿哥","[053]阿隆","[054]阿东","[055]阿强"],
+				"children":[
+					{
+						"name":"硬件检验",
+						"staff": ["[061]阿七","[062]阿哥","[063]阿隆","[064]阿东","[065]阿强"]
+					}]
+			},{
+				"name":"成品科",
+				"children":[
+					{
+						"name":"FQC3楼",
+						"staff": ["[071]阿七","[072]阿哥","[073]阿隆","[074]阿东","[075]阿强"]
+					},{
+						"name":"FQC4楼",
+						"staff": ["[081]阿七","[082]阿哥","[083]阿隆","[084]阿东","[085]阿强"]
+					},{
+						"name":"QA.QQC",
+						"staff": ["[091]阿七","[092]阿哥","[093]阿隆","[094]阿东","[095]阿强"]
+					}
+				]
+			}]
+		},
+		{
+			"name":"平台开发部",
+			"staff": ["[101]阿七","[102]阿哥","[103]阿隆","[104]阿东","[105]阿强"]
+		}
+	];
+
+
+
+	
+	function findstaffElement(data,ele) {
+		var Len = data.length;
+		for(var i=0;i<Len;i++){
+			if(data[i].name){
+				if(data[i].children){
+					$(ele).append(`<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>${data[i].name}
+										<span class="glyphicon glyphicon-chevron-down"></span>
+										</a>
+										<ul class="readboy-menu-ul" data-name="${data[i].name}"></ul>
+										</li>`);
+					findstaffElement(data[i].children,ele+">li>ul[data-name='"+data[i].name+"']");
+				}else{
+					$(ele).append(`<li class="readboy-menu-item"><a><i class="glyphicon glyphicon-folder-close"></i>${data[i].name}
+									</a></li>`);
+				}
+			}
+		}
+	}
+	findstaffElement(staff,"#staff>.left-apart>.readboy-menu>ul");
+	$("#staff .readboy-menu-item>a").on("click",function(){
+		var staffLen =staff.length;
+		for(var j=0;j<staffLen;j++){
+			if(findName(staff[j],$(this).text().replace(/\s+$/,""))){
+				break;
+			};
+		}
+
+		$(".readboy-modal-body .right-apart input").on("click",function(e){
+			e.stopPropagation();
+			if($(this).is(":checked")){
+				$(".readboy-modal-body .readboy-tag").append(`<div class="readboy-tag-item" data-val="${$(this).val()}"><span class="close">&times;</span>${$(this).val()}</div>`);
+				$(".readboy-tag-item .close").on("click",function(e){
+					e.stopPropagation();
+					$(".right-apart input[value='"+$(this).parent().data("val")+"']").attr("checked",false);
+					$(this).parent().remove();
+				})
+			}else{
+				$(".readboy-modal-body .readboy-tag").find(".readboy-tag-item[data-val='"+$(this).val()+"']").remove();
+			}
+		})
+	})
+	function findName(data,str){
+		if(data.name==str){
+			$("#staff .right-apart").children().remove();
+			if(data.staff){
+				for(var k=0;k<data.staff.length;k++){
+					//这里要判断一下是否已经被选择
+					var isCheck = false;
+					for(var m=0;m<$(".readboy-modal-body .readboy-tag .readboy-tag-item").length;m++){
+						if($(".readboy-modal-body .readboy-tag .readboy-tag-item").eq(m).data("val")==data.staff[k]){
+							isCheck = true;
+							break;
+						}
+					}
+					if(isCheck){
+						$("#staff .right-apart").append(`<div class="readboy-tag-checkbox">
+										<p>${data.staff[k]}</p>
+										<input type="checkbox" value="${data.staff[k]}" checked />
+									</div>`);
+					}else{
+						$("#staff .right-apart").append(`<div class="readboy-tag-checkbox">
+										<p>${data.staff[k]}</p>
+										<input type="checkbox" value="${data.staff[k]}" />
+									</div>`);
+					}
+				}
+			}
+			return true;
+		}else{
+			if(data.children){
+				for(var l=0;l<data.children.length;l++){
+					findName(data.children[l],str);
+				}
+			}else{
+				return false;
+			}
+		}
+	}
+
+
+	$("#selectStaff").on("click",function(){
+		$('.readboy-tag[data-target="#tagModal"]').html($(".readboy-modal-body .readboy-tag").html());
+		$(".readboy-tag-item .close").on("click",function(e){
+			e.stopPropagation();
+			$(this).parent().remove();
+		})
+		$("#tagModal").modal('hide');
+	})
+
+
+</script>
+</html>

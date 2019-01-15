@@ -8,7 +8,7 @@
 	display: none;
 }
 .readboy-checkbox .checkbox_label{
-	display: block;
+	display: inline-block;
 	width: 36px;
 }
 .readboy-checkbox .checkbox_label:before {
@@ -31,7 +31,7 @@
 
 
 .readboy-checkbox.readboy-checkbox-sm .checkbox_label{
-	display: block;
+	display: inline-block;
 	width: 20px;
 }
 .readboy-checkbox.readboy-checkbox-sm .checkbox_label:before {
@@ -48,7 +48,7 @@
 
 
 .readboy-checkbox.readboy-checkbox-lg .checkbox_label{
-	display: block;
+	display: inline-block;
 	width: 20px;
 }
 .readboy-checkbox.readboy-checkbox-lg .checkbox_label:before {
@@ -80,7 +80,7 @@
 	display: none;
 }
 .readboy-checkbox-circle .checkbox_label{
-	display: block;
+	display: inline-block;
 	width: 36px;
 }
 .readboy-checkbox-circle .checkbox_label:before {

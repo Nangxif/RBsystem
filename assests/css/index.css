@@ -910,3 +910,141 @@ html,body{
     -moz-box-shadow: none;
     box-shadow: none;
 }
+
+
+/*checkbox*/
+.readboy-checkbox{
+	user-select: none;
+}
+
+
+.readboy-checkbox input[type="checkbox"]{
+	
+	display: none;
+}
+.readboy-checkbox .checkbox_label{
+	display: block;
+	width: 36px;
+}
+.readboy-checkbox .checkbox_label:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 28px;
+    height: 28px;
+    border:2px solid #ff0000;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.readboy-checkbox input[type="checkbox"]:checked+.checkbox_label:before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkBAMAAAATLoWrAAAAMFBMVEUAAAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AACV3M16AAAAD3RSTlMAgOAXHHTb7OezoYuUER9iIwvfAAAAqElEQVQoz6XSMQrCQBCF4SexE8QbpNDeYGUpnsA72ArWVp5ALD2GR7DzQMKqaLGZsC+z7Gyq5JUfP1MNiptPdqqw9mYX3C39cLb0gc/Wiw4ZvauHpT0mpBhhRIoRSiEbpTSXKKXXRiLSM9BCItK/OGpEmmGlkdJ4yaglB2w14vmdZCEihYwRqcmmjJQkY6QkGaNIjhEpZBopudIQN5iuVr5dz5S/XMdj1hImLD9JhcvIAAAAAElFTkSuQmCC');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+
+
+
+.readboy-checkbox.readboy-checkbox-sm .checkbox_label{
+	display: inline-block;
+	width: 20px;
+}
+.readboy-checkbox.readboy-checkbox-sm .checkbox_label:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    border:2px solid #ff0000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+.readboy-checkbox.readboy-checkbox-lg .checkbox_label{
+	display: inline-block;
+	width: 20px;
+}
+.readboy-checkbox.readboy-checkbox-lg .checkbox_label:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 36px;
+    height: 36px;
+    border:2px solid #ff0000;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+.readboy-checkbox-circle{
+	user-select: none;
+}
+
+
+.readboy-checkbox-circle input[type="checkbox"]{
+	
+	display: none;
+}
+.readboy-checkbox-circle .checkbox_label{
+	display: inline-block;
+	width: 36px;
+}
+.readboy-checkbox-circle .checkbox_label:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 28px;
+    height: 28px;
+    border:2px solid #ff0000;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.readboy-checkbox-circle input[type="checkbox"]:checked+.checkbox_label:before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkBAMAAAATLoWrAAAAMFBMVEUAAAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AACV3M16AAAAD3RSTlMAgOAXHHTb7OezoYuUER9iIwvfAAAAqElEQVQoz6XSMQrCQBCF4SexE8QbpNDeYGUpnsA72ArWVp5ALD2GR7DzQMKqaLGZsC+z7Gyq5JUfP1MNiptPdqqw9mYX3C39cLb0gc/Wiw4ZvauHpT0mpBhhRIoRSiEbpTSXKKXXRiLSM9BCItK/OGpEmmGlkdJ4yaglB2w14vmdZCEihYwRqcmmjJQkY6QkGaNIjhEpZBopudIQN5iuVr5dz5S/XMdj1hImLD9JhcvIAAAAAElFTkSuQmCC');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+
+
+
+.readboy-checkbox-circle.readboy-checkbox-circle-sm .checkbox_label{
+	display: inline-block;
+	width: 20px;
+}
+.readboy-checkbox-circle.readboy-checkbox-circle-sm .checkbox_label:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    border:2px solid #ff0000;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+
+.readboy-checkbox-circle.readboy-checkbox-circle-lg .checkbox_label{
+	display: inline-block;
+	width: 20px;
+}
+.readboy-checkbox-circle.readboy-checkbox-circle-lg .checkbox_label:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 36px;
+    height: 36px;
+    border:2px solid #ff0000;
+    border-radius: 50%;
+    cursor: pointer;
+}

@@ -1,0 +1,44 @@
+.readboy-tag{
+	width: 400px;
+	min-height: 30px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    overflow: hidden;
+}
+.readboy-tag-item{
+	position: relative;
+	display: inline-block;
+	float: left;
+	padding: 5px;
+	margin: 5px;
+	font-size: 14px;
+	border-radius: 3px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    user-select: none;
+}
+.readboy-tag-item .close{
+	position: absolute;
+	display: block;
+	width: 16px;
+	height: 16px;
+	line-height: 16px;
+	text-align: center;
+	right: -8px;
+	top: -8px;
+	border-radius: 50%;
+    border: 1px solid black;
+    font-size: 16px;
+}
+.readboy-modal-body{
+	height: 400px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.readboy-modal-body .readboy-tag{
+	width: 100%;
+}
+.readboy-modal-body .nav-tabs{
+	margin-top: 15px;
+}
