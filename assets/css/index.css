@@ -126,13 +126,13 @@
 
 
 
-
+/*根据实际情况在此调整顶部宽度*/
 @media (min-width: 1200px){
 	.readboy-nav-contant{
 		width: 1200px;
 	}
 }
-@media (max-width: 1200px){
+@media (max-width: 1199px){
 	.readboy-nav-contant{
 		width: 100%;
 	}
@@ -1047,4 +1047,76 @@ html,body{
     border:2px solid #ff0000;
     border-radius: 50%;
     cursor: pointer;
+}
+
+
+
+
+
+/*文本框选择部分--小标签*/
+.readboy-tag{
+	width: 400px;
+	min-height: 30px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    overflow: hidden;
+}
+.readboy-tag-item{
+	position: relative;
+	display: inline-block;
+	float: left;
+	padding: 5px;
+	margin: 5px;
+	font-size: 14px;
+	border-radius: 3px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    user-select: none;
+}
+.readboy-tag-item .close{
+	position: absolute;
+	display: block;
+	width: 16px;
+	height: 16px;
+	line-height: 16px;
+	text-align: center;
+	right: -8px;
+	top: -8px;
+	border-radius: 50%;
+    border: 1px solid black;
+    font-size: 16px;
+}
+.readboy-modal-body{
+	height: 400px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.readboy-modal-body .readboy-tag{
+	width: 100%;
+}
+.readboy-modal-body .nav-tabs{
+	margin-top: 15px;
+}
+
+/*文本框选择部分--选择项*/
+.readboy-tag-checkbox{
+	display: flex;
+}
+.readboy-tag-checkbox p{
+	flex: 1;
+	margin-top: 10px;
+}
+.readboy-tag-checkbox input{
+	flex: 0 0 20px;
+	margin-top: 12px;
+}
+
+.readboy-apart{
+	display: inline-block;
+	width: 100%;
+}
+.readboy-left-apart,.readboy-right-apart{
+	display: inline-block;
+	vertical-align: top;
 }

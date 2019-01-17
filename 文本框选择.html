@@ -6,22 +6,8 @@
 	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
 	<title>文本框选择</title>
 	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="stylesheet" href="./assests/css/bootstrap.min.css">
-	<link rel="stylesheet" href="./assests/css/文本框选择.css" />
-	<link rel="stylesheet" href="./assests/css/index.css" />
-	<style type="text/css">
-		.readboy-tag-checkbox{
-			display: flex;
-		}
-		.readboy-tag-checkbox p{
-			flex: 1;
-			margin-top: 10px;
-		}
-		.readboy-tag-checkbox input{
-			flex: 0 0 20px;
-			margin-top: 12px;
-		}
-	</style>
+	<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./assets/css/index.css" />
 </head>
 <body>
 	<h3>文档列表布局</h3>
@@ -56,18 +42,22 @@
 					</ul>
 					<div id="myTabContent" class="tab-content">
 						<div class="tab-pane fade in active" id="apartment">
-							<div style="display: inline-block;width: 100%;" class="left-apart">
+							<div class="readboy-apart">
+								<div class="readboy-menu">
+									<ul class="readboy-menu-ul">
+									</ul>
+								</div>
 							</div>
 						</div>
 						<div class="tab-pane fade" id="staff">
-							<div style="display: inline-block;width: 40%;" class="left-apart">
+							<div style="width: 40%;" class="readboy-left-apart">
 								<div class="readboy-menu readboy-menu-2">
 									<ul class="readboy-menu-ul">
 										
 									</ul>
 								</div>
 							</div>
-							<div style="display: inline-block;width: 59%;vertical-align: top;" class="right-apart">
+							<div style="width: 59%;" class="readboy-right-apart">
 								
 							</div>
 						</div>
@@ -85,9 +75,9 @@
 		</div><!-- /.modal -->
 	</div>
 </body>
-<script src="./assests/js/jquery.min.js"></script>
-<script src="./assests/js/bootstrap.min.js"></script>
-<script src="./assests/js/readboy.js"></script>
+<script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/readboy.js"></script>
 <script type="text/javascript">
 
 	var apartment = [
@@ -127,7 +117,7 @@
 		$(".readboy-modal-body .readboy-tag").html($(this).html());
 		var selectLen = $(".readboy-modal-body .readboy-tag .readboy-tag-item").length;
 		$("#apartment input").prop("checked",false);
-		$("#staff .right-apart input").prop("checked",false);
+		$("#staff .readboy-right-apart input").prop("checked",false);
 		for(var n = 0;n<selectLen;n++ ){
 			for(var p=0;p<$("#apartment input").length;p++){
 				var isCheck = false;
@@ -138,21 +128,17 @@
 					$("#apartment input").eq(p).prop("checked",true);
 				}
 			}
-			for(var q = 0;q<$("#staff .right-apart input").length;q++){
+			for(var q = 0;q<$("#staff .readboy-right-apart input").length;q++){
 				var isCheck = false;
-				if($(".readboy-modal-body .readboy-tag .readboy-tag-item").eq(n).data("val")==$("#staff .right-apart input").eq(q).val()){
+				if($(".readboy-modal-body .readboy-tag .readboy-tag-item").eq(n).data("val")==$("#staff .readboy-right-apart input").eq(q).val()){
 					isCheck = true;
 				}
 				if(isCheck){
-					$("#staff .right-apart input").eq(q).prop("checked",true);
+					$("#staff .readboy-right-apart input").eq(q).prop("checked",true);
 				}
 			}
 		}
 	})
-	$("#apartment>.left-apart").append(`<div class="readboy-menu" style="width:100%">
-										<ul class="readboy-menu-ul">
-										</ul>
-									</div>`);
 	function findchildrenElement(data,ele) {
 		var Len = data.length;
 		for(var i=0;i<Len;i++){
@@ -172,7 +158,7 @@
 			}
 		}
 	}
-	findchildrenElement(apartment,"#apartment>.left-apart>.readboy-menu>ul");
+	findchildrenElement(apartment,"#apartment>.readboy-apart>.readboy-menu>ul");
 	$(".readboy-modal-body .readboy-menu-item input").on("click",function(e){
 		e.stopPropagation();
 		if($(this).is(":checked")){
@@ -263,7 +249,7 @@
 			}
 		}
 	}
-	findstaffElement(staff,"#staff>.left-apart>.readboy-menu>ul");
+	findstaffElement(staff,"#staff>.readboy-left-apart>.readboy-menu>ul");
 	$("#staff .readboy-menu-item>a").on("click",function(){
 		var staffLen =staff.length;
 		for(var j=0;j<staffLen;j++){
@@ -272,13 +258,13 @@
 			};
 		}
 
-		$(".readboy-modal-body .right-apart input").on("click",function(e){
+		$(".readboy-modal-body .readboy-right-apart input").on("click",function(e){
 			e.stopPropagation();
 			if($(this).is(":checked")){
 				$(".readboy-modal-body .readboy-tag").append(`<div class="readboy-tag-item" data-val="${$(this).val()}"><span class="close">&times;</span>${$(this).val()}</div>`);
 				$(".readboy-tag-item .close").on("click",function(e){
 					e.stopPropagation();
-					$(".right-apart input[value='"+$(this).parent().data("val")+"']").attr("checked",false);
+					$(".readboy-right-apart input[value='"+$(this).parent().data("val")+"']").attr("checked",false);
 					$(this).parent().remove();
 				})
 			}else{
@@ -288,7 +274,7 @@
 	})
 	function findName(data,str){
 		if(data.name==str){
-			$("#staff .right-apart").children().remove();
+			$("#staff .readboy-right-apart").children().remove();
 			if(data.staff){
 				for(var k=0;k<data.staff.length;k++){
 					//这里要判断一下是否已经被选择
@@ -300,12 +286,12 @@
 						}
 					}
 					if(isCheck){
-						$("#staff .right-apart").append(`<div class="readboy-tag-checkbox">
+						$("#staff .readboy-right-apart").append(`<div class="readboy-tag-checkbox">
 										<p>${data.staff[k]}</p>
 										<input type="checkbox" value="${data.staff[k]}" checked />
 									</div>`);
 					}else{
-						$("#staff .right-apart").append(`<div class="readboy-tag-checkbox">
+						$("#staff .readboy-right-apart").append(`<div class="readboy-tag-checkbox">
 										<p>${data.staff[k]}</p>
 										<input type="checkbox" value="${data.staff[k]}" />
 									</div>`);

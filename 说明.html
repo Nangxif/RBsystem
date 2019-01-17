@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+	<title>说明</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./assets/css/index.css" />
+</head>
+<body>
+	<div class="container bs-docs-container">
+		<div class="jumbotron">
+		  <h1>说明</h1>
+		</div>
+		<div class="row">
+			<h2>一、顶部导航栏说明</h2>
+			<p>顶部导航栏伸缩的宽度需要根据实际情况进行调整</p>
+			<p>具体需要修改的代码在assets/css/index.css里面第100行至第150行</p>
+			<pre>
+/*根据实际情况在此调整顶部宽度*/
+@media (min-width: 1200px){
+	.readboy-nav-contant{
+		width: 1200px;
+	}
+}
+@media (max-width: 1199px){
+	.readboy-nav-contant{
+		width: 100%;
+	}
+}
+			</pre>
+			<p>目前，在浏览器宽度大于1200px时，导航条内容区宽度不变，小于1200px时，导航条宽度为浏览器宽度</p>
+			<h2>二、左右布局说明</h2>
+			<p>具体的左右布局效果请参照DEMO</p>
+			<pre>
+&lt;div class="readboy-content">
+    &lt;div class="readboy-content-wrapper">
+        &lt;div class="readboy-content-wrapper-left">         
+        &lt;/div>
+        &lt;div class="readboy-content-wrapper-right">
+        &lt;/div>
+    &lt;/div>
+&lt;/div>
+			</pre>
+			<p><code>.readboy-content-wrapper</code>类部分的div是居中的白底内容部分</p>
+			<p><code>.readboy-content-wrapper-left</code>类是指左边部分，<code>.readboy-content-wrapper-right</code>类是指右边部分</p>
+			<p>左右两部分各占的大小也需要根据实际内容进行调整，相关的css代码在assets/css/index.css里面第200行至第300行</p>
+			<pre>
+.readboy-content-wrapper{
+	display: flex;
+	margin: 0 auto;
+	width:1100px;
+	box-shadow: 0px 0px 8px 3px rgba(6,0,1,.04);
+	background-color: white;
+}
+/*左小右大布局*/
+.readboy-content-wrapper-left{
+	flex: 0 0 260px;
+	padding: 10px;
+}
+.readboy-content-wrapper-right{
+	flex: 1;
+	padding: 10px;
+}
+.readboy-content-wrapper-center{
+	flex:1;
+	padding: 20px
+}
+			</pre>
+			<p>目前，居中部分白底内容区的宽度是1100px，具体宽度在<code>.readboy-content-wrapper</code>类里面修改。左边部分的宽度是260px，具体宽度在<code>.readboy-content-wrapper-left</code>类里面修改。右边部分的宽度是白底内容区剩下的空间。目前呈现的效果是左边小，右边大。如果要实现左边大，右边小的效果，只需要更换<code>.readboy-content-wrapper-left</code>和<code>.readboy-content-wrapper-right</code>的位置即可。</p>
+			<h2>三、侧边菜单栏说明</h2>
+			<p>侧边菜单栏的三个类<code>.readboy-menu-1</code><code>.readboy-menu-2</code><code>.readboy-menu-3</code>分别代替只有一级菜单、有二级菜单、有三级菜单的宽度。具体的宽度也可以自行设定。</p>
+
+		</div>
+	</div>
+</body>
+<script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/readboy.js"></script>
+</html>

@@ -6,9 +6,8 @@
 	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
 	<title>首页</title>
 	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="stylesheet" href="./assests/css/bootstrap.min.css">
-	<link rel="stylesheet" href="./assests/css/Glyphicons.css" />
-	<!-- <link rel="stylesheet" href="./assests/css/首页.css" /> -->
+	<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/index.css">
 	<style type="text/css">
 		/*左右布局*/
 		.readboy-flex{
@@ -26,58 +25,7 @@
 			height: 600px;
 			border:none;
 		}
-		/*侧边菜单栏样式*/
-		.readboy-menu{
-			width: 205px;
-			font-size: 16px;
-		}
-		.readboy-menu-ul{
-			width: 100%;
-			padding-left: 20px;
-		}
-		.readboy-menu-item{
-			list-style: none;
-			width: 100%;
-			line-height: 30px;
-			cursor: pointer;
-			user-select: none;
-		}
-		.readboy-menu-item a{
-			display: block;
-			padding-left: 10px;
-			padding-right: 10px;
-			width: 100%;
-			line-height:30px;
-			color: black; 
-		}
-		.readboy-menu-item a:hover,.readboy-menu-item a:active,.readboy-menu-item a:link,.readboy-menu-item a:visited{
-			color: black;
-			text-decoration: none;
-		}
-		.readboy-menu-item .readboy-menu-ul{
-			display: none;
-		}
-		.readboy-menu-item i{
-			display: inline-block;
-			margin-right: 10px;
-			color: #ffc95e;
-		}
-		.readboy-menu-item span{
-			display: inline-block;
-			float: right;
-			line-height: 30px;
-			color: #999;
-			transform: rotate(0deg);
-			transform-origin: center;
-			transition: transform .5s;
-			-moz-transition: transform .5s;
-			-webkit-transition: transform .5s;
-			-o-transition: transform .5s;
-		}
-		/*活跃状态的时候*/
-		.readboy-menu-item-active>a{
-			background-color: #e2e2e2;
-		}
+		
 	</style>
 </head>
 <body>
@@ -88,7 +36,7 @@
 		<div class="row">
 			<div class="readboy-flex">
 				<div class="readboy-flex-left">
-					<div class="readboy-menu">
+					<div class="readboy-menu readboy-menu-2">
 						<ul class="readboy-menu-ul">
 							<li class="readboy-menu-item readboy-menu-item-active"><a data-href="侧边栏菜单.html"><i class="glyphicon glyphicon-folder-close"></i>侧边栏菜单</a></li>
 							<li class="readboy-menu-item"><a data-href=""><i class="glyphicon glyphicon-folder-close"></i>视频<span class="glyphicon glyphicon-chevron-down"></span></a>
@@ -101,6 +49,15 @@
 							<!-- <li class="readboy-menu-item"><a data-href=""><i class="glyphicon glyphicon-folder-close"></i>文件上传插件</a></li> -->
 							<li class="readboy-menu-item"><a data-href="Notify.html"><i class="glyphicon glyphicon-folder-close"></i>Notify</a></li>
 							<li class="readboy-menu-item"><a data-href="文本框选择.html"><i class="glyphicon glyphicon-folder-close"></i>文本框选择</a></li>
+
+
+							<li class="readboy-menu-item"><a data-href="表单.html"><i class="glyphicon glyphicon-folder-close"></i>表单</a></li>
+							<li class="readboy-menu-item"><a data-href="翻页.html"><i class="glyphicon glyphicon-folder-close"></i>翻页</a></li>
+							<li class="readboy-menu-item"><a data-href="ICON.html"><i class="glyphicon glyphicon-folder-close"></i>ICON</a></li>
+							<li class="readboy-menu-item"><a data-href="Checkbox.html"><i class="glyphicon glyphicon-folder-close"></i>Checkbox</a></li>
+							<li class="readboy-menu-item"><a data-href="Modal.html"><i class="glyphicon glyphicon-folder-close"></i>弹框</a></li>
+							<li class="readboy-menu-item"><a data-href="Button.html"><i class="glyphicon glyphicon-folder-close"></i>按钮</a></li>
+							<li class="readboy-menu-item"><a data-href="富文本框.html"><i class="glyphicon glyphicon-folder-close"></i>富文本框</a></li>
 						</ul>
 					</div>
 				</div>
@@ -112,29 +69,10 @@
 		</div>
 	</div>
 </body>
-<script src="./assests/js/jquery.min.js"></script>
-<script src="./assests/js/bootstrap.min.js"></script>
-
+<script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/readboy.js"></script>
 <script type="text/javascript">
-	$(".readboy-menu-item").on("click",function(e){
-		e.stopPropagation();
-		if($(this).find(".readboy-menu-ul").length>0){
-			if($(this).children(".readboy-menu-ul").css("display")=="none"){
-				$(this).children("a").find("i").attr({"class":"glyphicon glyphicon-folder-open"});
-				$(this).children("a").find("span").css({"transform":"rotate(180deg)"});
-				$(this).children(".readboy-menu-ul").slideDown();
-			}else{
-				$(this).children("a").find("i").attr({"class":"glyphicon glyphicon-folder-close"});
-				$(this).children("a").find("span").css({"transform":"rotate(0deg)"});
-				$(this).children(".readboy-menu-ul").slideUp();
-			}
-		}
-		$(this).parents(".readboy-menu").find(".readboy-menu-item").removeClass("readboy-menu-item-active");
-		$(this).addClass("readboy-menu-item-active");
-	});
-
-
-
 	$(".readboy-menu-item").on("click",function(){
 		if($(this).children("a").data("href")){
 			document.getElementsByClassName('readboy-flex-right')[0].getElementsByTagName("iframe")[0].contentWindow.location.replace($(this).children("a").data("href"));
