@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+	<title>标签页</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./assets/css/标签页.css" />
+</head>
+<body>
+	<div class="container bs-docs-container">
+		<div class="jumbotron">
+		  <h1>标签页</h1>
+		  <p>目前两种类型</p>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h3>一、标签页一</h3>
+				<p>类<code>.readboy-tab</code>是标签页相关区域的标识，每个标签的data-href属性对应相应内容区的id。</p>
+				<!-- 复制此段代码即可使用 -->
+				<div class="readboy-tab">
+					<div class="readboy-tabs">
+	                    <ul class="readboy-tab-item">
+	                        <li class="active"><a data-href="#a">内容一</a></li>
+	                        <li><a data-href="#b">内容二</a></li>
+	                        <li><a data-href="#c">内容三</a></li>
+	                        <li><a data-href="#d">内容四</a></li>
+	                        <li><a data-href="#e">内容五</a></li>
+	                    </ul>
+	                </div>
+	                <div class="readboy-tab-content">
+						<div class="readboy-tab-content-item active" id="a">
+							<div class="readboy-tab-nocontent">
+								<div class="readboy-tab-icon_1"></div>
+								<p>暂无内容</p>
+							</div>
+						</div>
+						<div class="readboy-tab-content-item" id="b">
+							内容二部分内容
+						</div>
+						<div class="readboy-tab-content-item" id="c">
+							内容三部分内容
+						</div>
+						<div class="readboy-tab-content-item" id="d">
+							内容四部分内容
+						</div>
+						<div class="readboy-tab-content-item" id="e">
+							内容五部分内容
+						</div>
+	                </div>
+				</div>
+				<!-- 结束 -->
+
+
+				<h3>二、标签页二</h3>
+				<p>类<code>.readboy-tab-oval</code>需要和<code>.readboy-tab</code>同时使用。有<code>.readboy-tab-oval</code>的标签页是呈“灰色椭圆形”的。</p>
+				<div class="readboy-tab readboy-tab-oval">
+					<div class="readboy-tabs">
+	                    <ul class="readboy-tab-item">
+	                        <li class="active"><a data-href="#a1">内容一</a></li>
+	                        <li><a data-href="#b1">内容二</a></li>
+	                        <li><a data-href="#c1">内容三</a></li>
+	                        <li><a data-href="#d1">内容四</a></li>
+	                        <li><a data-href="#e1">内容五</a></li>
+	                    </ul>
+	                </div>
+	                <div class="readboy-tab-content">
+						<div class="readboy-tab-content-item active" id="a1" >
+							<div class="readboy-tab-nocontent">
+								<div class="readboy-tab-icon_1"></div>
+								<p>暂无内容</p>
+							</div>
+						</div>
+						<div class="readboy-tab-content-item" id="b1">
+							内容二部分内容
+						</div>
+						<div class="readboy-tab-content-item" id="c1">
+							内容三部分内容
+						</div>
+						<div class="readboy-tab-content-item" id="d1">
+							内容四部分内容
+						</div>
+						<div class="readboy-tab-content-item" id="e1">
+							内容五部分内容
+						</div>
+	                </div>
+				</div>
+
+				<h3>PS</h3>
+				<p>暂无内容的图标有一下三种</p>
+				<div style="display: flex;min-height: 300px;">
+					<div style="flex:1;position: relative;">
+						<div class="readboy-tab-nocontent">
+							<div class="readboy-tab-icon_1"></div>
+							<p>暂无内容</p>
+						</div>
+					</div>
+					<div style="flex:1;position: relative;">
+						<div class="readboy-tab-nocontent">
+							<div class="readboy-tab-icon_2"></div>
+							<p>暂无内容</p>
+						</div>
+					</div>
+					<div style="flex:1;position: relative;">
+						<div class="readboy-tab-nocontent">
+							<div class="readboy-tab-icon_3"></div>
+							<p>暂无内容</p>
+						</div>
+					</div>
+				</div>
+				<p>分别对应类<code>.readboy-tab-icon_1</code>、<code>.readboy-tab-icon_2</code>、<code>.readboy-tab-icon_3</code>。</p>
+		
+			</div>
+		</div>
+	</div>
+</body>
+<script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(".readboy-tabs").on("click",".readboy-tab-item>li",function(){
+		$(this).parent().find("li").removeClass("active");
+		$(this).addClass("active");
+		$(this).parents(".readboy-tab").find(".readboy-tab-content-item").removeClass("active");
+		$(this).parents(".readboy-tab").find(".readboy-tab-content-item[id='"+$(this).find("a").data("href").slice(1)+"']").addClass("active");
+	})
+</script>
+</html>

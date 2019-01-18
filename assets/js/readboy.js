@@ -108,4 +108,14 @@ $(function(){
         n = setInterval(t, 50),
         $("html,body").animate({scrollTop: 0},"slow");
     });
+
+
+
+    // 标签页
+    $(".readboy-tabs").on("click",".readboy-tab-item>li",function(){
+        $(this).parent().find("li").removeClass("active");
+        $(this).addClass("active");
+        $(this).parents(".readboy-tab").find(".readboy-tab-content-item").removeClass("active");
+        $(this).parents(".readboy-tab").find(".readboy-tab-content-item[id='"+$(this).find("a").data("href").slice(1)+"']").addClass("active");
+    })
 })

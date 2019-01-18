@@ -571,14 +571,28 @@ html,body{
 
 
 
-/*导航条*/
+/*标签页*/
+
+
 .readboy-tab{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background: #fff;
+    border: none;
+    -webkit-box-shadow: 0 0 12px 4px rgba(6,0,1,.06);
+    -moz-box-shadow: 0 0 12px 4px rgba(6,0,1,.06);
+    box-shadow: 0 0 12px 4px rgba(6,0,1,.06);
+}
+
+
+
+.readboy-tabs{
 	margin: 10px;
 	margin-bottom: 20px;
 	height: 40px;
 	line-height: 40px;
 }
-.readboy-tab .readboy-tab-item{
+.readboy-tabs .readboy-tab-item{
 	height: 40px;
 	line-height: 40px;
 	margin-left: 10px;
@@ -586,29 +600,117 @@ html,body{
 	padding-left: 0px;
 	border-bottom: 1px solid #e2e2e2; 
 }
-.readboy-tab .readboy-tab-item li{
+.readboy-tabs .readboy-tab-item li{
 	float: left;
 	display: inline-block;
 	text-align: center;
 	font-size: 16px;
 	list-style: none;
 }
-.readboy-tab .readboy-tab-item li.active{
+.readboy-tabs .readboy-tab-item li.active{
 	border-bottom: 2px solid red;
 }
-.readboy-tab .readboy-tab-item li a{
+.readboy-tabs .readboy-tab-item li a{
 	display:block;
 	padding-left: 15px;
 	padding-right: 15px;
 	height: 40px;
 	line-height: 40px;
+	color: #858585;
+	cursor: pointer;
 }
-.readboy-tab .readboy-tab-item li.active a{
+.readboy-tabs .readboy-tab-item li.active a{
 	color: red !important;
 }
-.readboy-tab .readboy-tab-item li a:hover,.readboy-tab .readboy-tab-item li a:active,.readboy-tab .readboy-tab-item li a:link,.readboy-tab .readboy-tab-item li a:visited{
+.readboy-tabs .readboy-tab-item li a:hover,.readboy-tabs .readboy-tab-item li a:active,.readboy-tabs .readboy-tab-item li a:link,.readboy-tabs .readboy-tab-item li a:visited{
 	color: #858585;
 	text-decoration: none;
+}
+
+
+
+
+.readboy-tab-oval .readboy-tabs .readboy-tab-item li.active{
+	border-bottom: none;
+}
+.readboy-tab-oval .readboy-tabs .readboy-tab-item li a{
+	display:block;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	height: 30px;
+	line-height: 30px;
+	color: #858585;
+	cursor: pointer;
+}
+.readboy-tab-oval .readboy-tabs .readboy-tab-item li.active a{
+	border-radius: 15px;
+	background-color: #9595aa !important;
+	color: white !important;
+}
+
+
+
+
+
+
+.readboy-tab-content{
+	margin-left:20px;
+	margin-right: 20px;
+	padding: 10px;
+	padding-top: 0px;
+    min-height: 290px;
+}
+.readboy-tab-content-item{
+	display: none;
+	position: relative;
+	height: 100%;
+}
+
+.readboy-tab-nocontent{
+	display: inline-block;
+    margin: 50px auto;
+    width: 140px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;
+	color: #5c5c5c;
+}
+.readboy-tab-nocontent p{
+	margin-top: 5px;
+	font-size: 17px;
+	text-align: center;
+}
+.readboy-tab-nocontent .readboy-tab-icon_1{
+	width: 140px;
+    height: 150px;
+    background: url('../images/readboy-tab-icon_1.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+}
+
+.readboy-tab-nocontent .readboy-tab-icon_2{
+	width: 140px;
+    height: 110px;
+    background: url('../images/readboy-tab-icon_2.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+}
+
+.readboy-tab-nocontent .readboy-tab-icon_3{
+	width: 140px;
+    height: 166px;
+    background: url('../images/readboy-tab-icon_3.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+}
+.readboy-tab-content-item.active{
+	display: block;
 }
 
 /*更多*/
